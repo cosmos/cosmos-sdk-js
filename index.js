@@ -41,7 +41,7 @@ class Client {
       let data = resError.response.data
       if (!data) throw resError
       // server responded with error message, create an Error from that
-      let error = Error(data.error)
+      let error = Error(`Error in Gaia-server. Request: ${method}: ${path}. Error: ${data.error}`)
       error.code = data.code
       throw error
     }
