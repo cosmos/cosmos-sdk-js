@@ -50,6 +50,7 @@ class Client {
 
 let fetchAccount = argReq('GET', '/query/account')
 let fetchNonce = argReq('GET', '/query/nonce')
+let fetchCandidates = argReq('GET', '/query/stake/candidates')
 
 Object.assign(Client.prototype, {
   sign: req('POST', '/sign'),
@@ -61,6 +62,7 @@ Object.assign(Client.prototype, {
   getKey: argReq('GET', '/keys'),
   updateKey: argReq('PUT', '/keys'),
   deleteKey: argReq('DELETE', '/keys'),
+  recoverKey: req('POST', '/keys/recover'),
 
   // coins
   buildSend: req('POST', '/build/send'),
@@ -75,6 +77,7 @@ Object.assign(Client.prototype, {
       throw err
     }
   },
+  coinTxs: argReq('GET', '/tx/coins'),
 
   // nonce
   async queryNonce (address) {
@@ -93,11 +96,12 @@ Object.assign(Client.prototype, {
   status: req('GET', '/tendermint/status'),
 
   // staking
-  candidate: argReq('GET', '/query/stake/candidate'),
-  candidates: req('GET', '/query/stake/candidate'),
-  buildCandidacy: argReq('POST', '/tx/stake/declare-candidacy'),
+  candidate: argReq('GET', '/query/stake/candidates'),
+  candidates: req('GET', '/query/stake/candidates'),
   buildDelegate: argReq('POST', '/tx/stake/delegate'),
-  buildUnbond: argReq('POST', '/tx/stake/unbond')
+  buildUnbond: argReq('POST', '/tx/stake/unbond'),
+  bondingsByDelegator: argReq('GET', '/tx/bondings/delegator'),
+  bondingsByValidator: argReq('GET', '/tx/bondings/validator')
 
   // TODO: separate API registration for different modules
 })
