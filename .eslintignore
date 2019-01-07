@@ -1,0 +1,9 @@
+dist/*.js
+config/*.js
+src/lib/
+test/
+build/
+tmpfiles/
+example/
+
+!**/*.js

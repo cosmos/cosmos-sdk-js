@@ -1,52 +1,152 @@
-# cosmos-sdk-js
-JavaScript client for the Cosmos SDK API
+# QWeb
+QOS JS SDK  
 
-## Usage
+[![version](https://img.shields.io/github/tag/QOSGroup/qweb.svg)](https://github.com/QOSGroup/qweb/releases/latest)
+[![Build Status](https://travis-ci.org/QOSGroup/qweb.svg?branch=master)](https://travis-ci.org/QOSGroup/qweb)
+[![license](https://img.shields.io/github/license/QOSGroup/qweb.svg)](https://github.com/QOSGroup/qweb/blob/master/LICENSE)
+[![](https://tokei.rs/b1/github/QOSGroup/qweb?category=lines)](https://github.com/QOSGroup/qweb)
 
+# 开发
+- 安装依赖 `npm install`
+- 运行Demo页面 
+    - 运行 `npm run dev` 
+    - 然后在浏览器中打开 `http://127.0.0.1:9393`
+    - 在 console中查看测试结果
+- 运行单元测试
+    - 运行 `npm run unittest` 
+    - 在 console中查看测试结果
+- 生产打包
+    - 运行 `npm run build`
+    
+# 用法
+## 1、引入dist/qweb.js
+## 2、new一个QWeb对象
+    const qweb = new QWeb({ chainId: 'qos-test', baseUrl: 'http://192.168.1.223:1317' }
+
+## 3、账户和交易
+- Account
+```javascript
+    // 新建账户
+    const newAccount = qweb.newAccount()
+    console.log(newAccount)
+    console.log('--------------------------------------')
+
+    // 根据助记词恢复账户
+    const mn = 'milk garden scare goat sketch laundry teach rival loyal double cotton renew giraffe spend web amused vault snake emerge beauty suffer kitten surface level'
+    const recoveryAccount = qweb.recoveryAccountByMnemonic(mn)
+    console.log(recoveryAccount)
+    console.log('--------------------------------------')
+
+    // 根据私钥恢复账户
+    const rAccount = qweb.recoveryAccountByPrivateKey('JcoHX1Oeuvo1coS7nTukw1Km24YbFTccQMpAof/ZEhH2i2uznasYVD/U7oKYN4eL5JT9syYSh+KBmgTffinyNg==')
+    console.log(rAccount)
+    console.log('--------------------------------------')
+
+    // 根据地址查询账户
+    qweb.account.get('address1pcjs0t9m9vl7vejwttuc2fzfgnutndnrpyw08m').then(res=>{
+        console.log(res.data)
+    })
 ```
-npm install --save cosmos-sdk
-```
-
-```js
-let client = require('cosmos-sdk')('http://localhost:45512')
-
-// create a key
-let key = await client.generateKey({ name: 'matt', passphrase: 'top secret' })
-
-
-// build a transaction
-let tx = await client.build('send', {
-  to: key.address,
-  amount: { amount: 12345, denom: 'mycoin' },
-  fee: { amount: 23, denom: 'atom' }
-})
-
-// now sign the tx
-let signedTx = await client.sign({ tx, name: 'judd', password: 'other top secret' })
-
-// send the signed transaction to the node to send out to other nodes
-let result = await client.send(tx)
-
-// query account
-let queryResult = await query({
-  type: 'account',
-  data: 'sigs:BDADF167E6CF2CDF2D621E590FF1FED2787A40E0'
-})
-console.log(result)
-
-/*
-  {
-    "height": 1170,
-    "data": {
-      "coins": [
+- Tx
+    - 一对一转账
+    ``` javascript
+    const promise = qweb.tx.from([
         {
-          "denom": "mycoin",
-          "amount": 12345
+            privateKey: 'privateKey1',
+            addr: 'addr1',
+            qos: '0',
+            qscs: [
+                {
+                    coin_name: 'AOE', amount: '100'
+                }
+            ]
         }
-      ]
-    }
-  }
-*/
+    ]).to([
+        {
+            addr: 'addr2',
+            qos: '0',
+            qscs: [
+                {
+                    coin_name: 'AOE', amount: '100'
+                }
+            ]
+        }
+    ]).send()
 
+    promise.then(res => {
+        console.log(res.data)
+    })
 
-```
+    ```
+    - 一对多转账
+    ``` javascript
+    const promise = qweb.tx.from([
+        {
+            privateKey: 'privateKey1',
+            addr: 'addr1',
+            qos: '0',
+            qscs: [
+                {
+                    coin_name: 'AOE', amount: '200'
+                }
+            ]
+        }
+    ]).to([
+        {
+            addr: 'addr2',
+            qos: '0',
+            qscs: [
+                {
+                    coin_name: 'AOE', amount: '100'
+                }
+            ]
+        },
+        {
+            addr: 'addr3',
+            qos: '0',
+            qscs: [
+                {
+                    coin_name: 'AOE', amount: '100'
+                }
+            ]
+        }
+    ]).send()
+
+    promise.then(res => {
+        console.log(res.data)
+    })
+    ```
+    - 多对多转账(from和to的币数量总量需要相等)
+    ``` javascript
+    const promise = qweb.tx.from([
+        {
+            privateKey: 'privateKey1',
+            addr: 'addr1',
+            qos: '2',
+            qscs: [
+                { coin_name: 'AOE', amount: '1' }
+            ]
+        },
+        {
+            privateKey: 'privateKey2',
+            addr: 'addr2',
+            qos: '1',
+            qscs: []
+        }
+    ]).to([
+        {
+            addr: 'addr3',
+            qos: '1',
+            qscs: [{ coin_name: 'AOE', amount: '1' }]
+        },
+        {
+            addr: 'addr4',
+            qos: '2'
+        }
+    ]).send()
+
+    promise.then(res => {
+        console.log(res.data)
+    })
+
+    ```

@@ -1,24 +1,64 @@
 {
-  "name": "cosmos-sdk",
-  "version": "1.5.1",
-  "description": "JavaScript client for the Cosmos SDK API",
+  "name": "qos-js-sdk",
+  "version": "0.0.1",
+  "description": "qos-js-Sdk：js轻客户端",
   "main": "index.js",
-  "dependencies": {
-    "axios": "^0.16.2",
-    "old": "^0.2.0"
-  },
-  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack --config build/webpack.prod.conf.js",
+    "dev": "webpack-dev-server --watch-content-base --inline --content-base ./example --port 9393 --host 127.0.0.1 --open --hot --config build/webpack.dev.conf.js",
+    "lint": "eslint --ext .js,.vue src",
+    "test": "npm run lint",
+    "unittest": "karma start karma.conf.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tendermint/cosmos-sdk-js.git"
+  "keywords": [
+    "qos",
+    "js",
+    "sdk"
+  ],
+  "author": "zhangwenshun",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "babel-core": "^6.22.1",
+    "babel-eslint": "8.2.6",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-istanbul": "^4.1.1",
+    "babel-plugin-transform-regenerator": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.3.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-2": "^6.22.0",
+    "chai": "^4.2.0",
+    "eslint": "4.19.1",
+    "eslint-friendly-formatter": "4.0.1",
+    "eslint-loader": "2.0.0",
+    "karma": "^3.1.4",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-mocha": "^1.3.0",
+    "karma-webpack": "^3.0.5",
+    "mocha": "^5.2.0",
+    "nanoseconds": "^1.0.1",
+    "ts-loader": "^5.3.3",
+    "typescript": "^3.2.2",
+    "uglifyjs-webpack-plugin": "^2.0.1",
+    "webpack": "^4.25.1",
+    "webpack-bundle-analyzer": "^3.0.3",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10",
+    "webpack-merge": "^4.1.4"
   },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/tendermint/cosmos-sdk-js/issues"
-  },
-  "homepage": "https://github.com/tendermint/cosmos-sdk-js#readme"
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bech32": "^1.1.3",
+    "bip39": "^2.5.0",
+    "ed25519-hd-key": "^0.5.0",
+    "exports-loader": "^0.7.0",
+    "imports-loader": "^0.8.0",
+    "int53": "^0.2.4",
+    "js-sha256": "^0.9.0",
+    "signed-varint": "^2.0.1",
+    "tweetnacl": "^1.0.0",
+    "tweetnacl-util": "^0.15.0",
+    "varint": "^5.0.0"
+  }
 }

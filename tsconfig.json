@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "outDir": "./dist/",
+        "sourceMap": true,
+        "noImplicitAny": true,
+        "module": "commonjs",
+        "lib": [
+            "es6",
+            "es2015",
+            "dom"
+        ],
+        "target": "es5",
+        "jsx": "react",
+        "allowJs": true
+    }
+}
