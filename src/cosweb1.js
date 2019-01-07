@@ -4,7 +4,7 @@ import { default as tool } from './util/tool'
 import bip39 from 'bip39'
 import HTTPEndpoint from './util/HTTPEndpoint'
 import Tx from './model/tx'
-import Account from './model/account'
+import Account from './module/account/accountt/account'
 
 const genarateMnemonic = Symbol('genarateMnemonic')
 const genarateKeyPair = Symbol('genarateKeyPair')

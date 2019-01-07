@@ -6,4 +6,4 @@ build/
 tmpfiles/
 example/
 
-!**/*.js
+!src/**/(*.js|*.ts)

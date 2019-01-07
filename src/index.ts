@@ -4,8 +4,7 @@
 
 import CosWeb from './cosweb'
 
-const cosweb = new CosWeb({})
+const cosweb = new CosWeb({a:1})
 
+console.log(cosweb.config)
 
-
-console.log('ts test')

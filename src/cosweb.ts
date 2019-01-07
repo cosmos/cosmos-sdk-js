@@ -1,8 +1,11 @@
+import { iCosWeb } from './cosweb.d'
 
-export default class CosWeb {
-    constructor(config: object) {
+import { default as tool} from './util/tool'
 
+export default class CosWeb implements iCosWeb {
+    
+    constructor(public config: object) {
+        
     }
 
-    
 }
