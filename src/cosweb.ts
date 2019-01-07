@@ -1,11 +1,14 @@
-import { iCosWeb } from './cosweb.d'
+import { ICosWeb } from './cosweb.d'
 
-import { default as tool} from './util/tool'
+import Keys from './module/Keys/keys'
 
-export default class CosWeb implements iCosWeb {
-    
-    constructor(public config: object) {
-        
-    }
+export default class CosWeb implements ICosWeb {
 
+	constructor(public config: object) {
+
+	}
+
+	public get Keys() {
+		return new Keys()
+	}
 }

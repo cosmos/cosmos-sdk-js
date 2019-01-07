@@ -1,3 +1,3 @@
-export declare interface iSlashing {
+export declare interface ISlashing {
 
 }

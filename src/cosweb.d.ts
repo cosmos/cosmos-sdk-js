@@ -1,20 +1,20 @@
-import { iTM } from './module/TM/tm.d'
-import { iKeys } from './module/Keys/keys.d'
-import { iTX } from './module/TX/tx.d'
-import { iStake } from './module/Stake/stake.d'
-import { iGov } from './module/Gov/gov.d'
-import { iSlashing } from './module/Slashing/slashing.d'
-import { iFee } from './module/Fee/fee.d'
+// import { ITM } from './module/TM/tm.d'
+import { IKeys } from './module/Keys/keys.d'
+// import { ITX } from './module/TX/tx.d'
+// import { IStake } from './module/Stake/stake.d'
+// import { IGov } from './module/Gov/gov.d'
+// import { ISlashing } from './module/Slashing/slashing.d'
+// import { IFee } from './module/Fee/fee.d'
 
-export declare interface iCosWeb {
-    config: object
+export declare interface ICosWeb {
+    config: object;
     // constructor(config: object): any
-
-    // Key management APIs
-    // Keys: iKeys
 
     // Tendermint APIs, such as query blocks, transactions and validatorset
     // TM: iTM
+
+    // Key management APIs
+    Keys: IKeys;
 
     // Create, sign and broadcast transactions
     // TX: iTX

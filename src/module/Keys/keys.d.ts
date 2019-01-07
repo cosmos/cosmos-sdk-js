@@ -1,4 +1,4 @@
 
-export declare interface iKeys {
+export declare interface IKeys {
 
 }

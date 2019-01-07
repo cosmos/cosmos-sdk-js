@@ -1,4 +1,4 @@
 
-export declare interface iTX {
+export declare interface ITX {
 
 }

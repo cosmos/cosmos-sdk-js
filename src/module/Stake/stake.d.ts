@@ -1,4 +1,4 @@
 
-export declare interface iStake {
+export declare interface IStake {
 
 }

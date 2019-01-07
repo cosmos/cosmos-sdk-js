@@ -1,4 +1,4 @@
 
-export declare interface iTM {
+export declare interface ITM {
 
 }

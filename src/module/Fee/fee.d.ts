@@ -1,3 +1,3 @@
-export declare interface iFee {
+export declare interface IFee {
 
 }

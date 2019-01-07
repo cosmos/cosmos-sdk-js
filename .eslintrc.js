@@ -1,11 +1,19 @@
 module.exports = {
+	parser: 'typescript-eslint-parser',
+	plugins: [
+		'typescript'
+	],
 	'env': {
 		'browser': true,
 		'commonjs': true,
 		'es6': true,
 		'node': true
 	},
-	'extends': 'eslint:recommended',
+	'extends': [
+		'eslint-config-alloy/typescript',
+		'eslint:recommended',
+	],
+	// 'extends': 'eslint:recommended',
 	'parserOptions': {
 		'ecmaVersion': 2017,
 		'sourceType': 'module'
@@ -28,5 +36,6 @@ module.exports = {
 			'never'
 		],
 		'no-console': 'off',
+		'typescript/class-name-casing': 'error'
 	}
 }
