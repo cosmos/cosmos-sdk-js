@@ -1,7 +1,7 @@
 {
-  "name": "qos-js-sdk",
+  "name": "cosmos-js-sdk",
   "version": "0.0.1",
-  "description": "qos-js-Sdk：js轻客户端",
+  "description": "cosmos-js-Sdk",
   "main": "index.js",
   "scripts": {
     "build": "webpack --config build/webpack.prod.conf.js",
@@ -11,7 +11,7 @@
     "unittest": "karma start karma.conf.js"
   },
   "keywords": [
-    "qos",
+    "cosmos",
     "js",
     "sdk"
   ],
@@ -43,7 +43,6 @@
     "webpack-merge": "^4.1.4"
   },
   "dependencies": {
-    "@types/node": "^10.12.18",
     "axios": "^0.18.0",
     "bech32": "^1.1.3",
     "bip39": "^2.5.0",
