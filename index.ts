@@ -1,17 +1,16 @@
-// import QWeb from './src/index'
+import CosWeb from './src/index'
+
+export default CosWeb
 
 // (function (global) {
-
+// 	console.log(module.exports)
 // 	if (typeof module === 'object' && typeof module.exports === 'object') {
-// 		module.exports = QWeb
+// 		console.log(1)
+// 		module.exports = CosWeb
 // 	} else {
-// 		global.QWeb = QWeb
+// 		global.CosWeb = CosWeb
 // 	}
-
+// 	console.log(global)
 // 	// Pass this if window is not defined yet
 // })(typeof window !== 'undefined' ? window : this)
 
-// export default QWeb
-
-
-import './src/index'
