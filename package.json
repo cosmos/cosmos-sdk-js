@@ -1,17 +1,21 @@
 {
-  "name": "qos-js-sdk",
+  "name": "cosmos-js-sdk",
   "version": "0.0.1",
-  "description": "qos-js-Sdk：js轻客户端",
-  "main": "index.js",
+  "description": "cosmos-js-Sdk：js轻客户端",
+  "main": "dist/cmjs/index.js",
+  "module": "dist/es6/index.js",
   "scripts": {
-    "build": "webpack --config build/webpack.prod.conf.js",
+    "build:es6": "tsc -P tsconfig.json --module ES6 --outDir dist/es6",
+    "build:cmjs": "tsc -P tsconfig.json",
+    "build:web": "webpack --config build/webpack.prod.conf.js",
+    "build": "npm run build:cmjs; npm run build:es6; npm run build:web",
     "dev": "webpack-dev-server --watch-content-base --inline --content-base ./example --port 9393 --host 127.0.0.1 --open --hot --config build/webpack.dev.conf.js",
     "lint": "eslint --ext .js,.ts,.vue src",
     "test": "npm run lint",
     "unittest": "karma start karma.conf.js"
   },
   "keywords": [
-    "qos",
+    "cosmos",
     "js",
     "sdk"
   ],

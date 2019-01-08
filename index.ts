@@ -1,6 +1,9 @@
 import CosWeb from './src/index'
 
-(window as any).CosWeb = CosWeb
+if(typeof window !== 'undefined'){
+    (window as any).CosWeb = CosWeb
+}
+
 export default CosWeb
 
 // (function (global) {
