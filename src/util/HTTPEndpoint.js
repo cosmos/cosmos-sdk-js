@@ -10,6 +10,6 @@ const createAxioRequest = (baseURL, timeout)=>{
 export default class HTTPEndpoint {
 	constructor(config){
 		this.HTTPBaseURL = config.baseUrl
-		this.request = createAxioRequest(`${this.HTTPBaseURL}`, 30000)
+		this.request = createAxioRequest(`${process.env.BASE_API}${this.HTTPBaseURL}`, 30000)
 	}
 }

@@ -1,6 +1,8 @@
-// const CosWeb = require('../dist').default
 
-// console.log(CosWeb)
+// console.log('-----')
+// console.log(typeof window)
+
+// const CosWeb = require('../dist/cmjs').default
 
 const cosweb = new CosWeb({ baseUrl: 'https://192.168.1.215:26657' })
 

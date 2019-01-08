@@ -1,20 +1,14 @@
 import CosWeb from './src/index'
 
-if(typeof window !== 'undefined'){
-    (window as any).CosWeb = CosWeb
-}
+const cosweb = new CosWeb({ baseUrl: '' })
+
+console.log(cosweb.config)
+
+cosweb.Keys.getAll().then(res => {
+    console.log('------------------')
+    console.log(res.data)
+})
+
 
 export default CosWeb
-
-// (function (global) {
-// 	console.log(module.exports)
-// 	if (typeof module === 'object' && typeof module.exports === 'object') {
-// 		console.log(1)
-// 		module.exports = CosWeb
-// 	} else {
-// 		global.CosWeb = CosWeb
-// 	}
-// 	console.log(global)
-// 	// Pass this if window is not defined yet
-// })(typeof window !== 'undefined' ? window : this)
 

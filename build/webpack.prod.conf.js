@@ -1,5 +1,7 @@
 'use strict'
 const merge = require('webpack-merge')
+
+const webpack = require('webpack')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const baseWebpackConfig = require('./webpack.base.conf')
 
@@ -25,10 +27,13 @@ const webpackConfig = merge(baseWebpackConfig, {
                 parallel: true
             })
         ]
-    }
-    // plugins: [
-    //     // new BundleAnalyzerPlugin()
-    // ],
+    },
+    plugins: [
+        new webpack.DefinePlugin({
+            'process.env': require('../config/prod.env')
+        }),
+        // new BundleAnalyzerPlugin()
+    ],
 })
 
 module.exports = webpackConfig

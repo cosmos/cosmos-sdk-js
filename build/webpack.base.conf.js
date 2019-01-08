@@ -6,7 +6,7 @@ function resolve(dir) {
 
 module.exports = {
 	context: resolve('./'),
-	entry: './index.ts',
+	entry: './src/index.ts',
 	output: {
 		path: resolve('dist'),
 		filename: 'cosweb.js'
