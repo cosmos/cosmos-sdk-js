@@ -1,5 +1,5 @@
-# QWeb
-QOS JS SDK  
+# CosWeb
+Cosmos JS SDK  
 
 [![version](https://img.shields.io/github/tag/cosmos/cosmos-sdk-js.svg)](https://github.com/cosmos/cosmos-sdk-js/releases/latest)
 [![Build Status](https://travis-ci.org/cosmos/cosmos-sdk-js.svg?branch=master)](https://travis-ci.org/cosmos/cosmos-sdk-js)
