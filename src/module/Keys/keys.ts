@@ -3,7 +3,7 @@ import CosWeb from '../../cosweb'
 
 export default class Keys implements IKeys {
 
-	constructor(public cosweb: CosWeb) {
+	constructor(private cosweb: CosWeb) {
 
 	}
 

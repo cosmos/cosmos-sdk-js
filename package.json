@@ -23,6 +23,7 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "awesome-typescript-loader": "^5.2.1",
+    "babel-eslint": "^10.0.1",
     "chai": "^4.2.0",
     "eslint": "^4.19.1",
     "eslint-config-alloy": "^1.4.2",

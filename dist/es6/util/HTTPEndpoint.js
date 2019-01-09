@@ -8,7 +8,7 @@ var createAxioRequest = function (baseURL, timeout) {
 var HTTPEndpoint = /** @class */ (function () {
     function HTTPEndpoint(config) {
         this.HTTPBaseURL = config.baseUrl;
-        this.request = createAxioRequest("" + this.HTTPBaseURL, 30000);
+        this.request = createAxioRequest("" + process.env.BASE_API + this.HTTPBaseURL, 30000);
     }
     return HTTPEndpoint;
 }());
