@@ -4,7 +4,7 @@
   "description": "JavaScript client for the Cosmos SDK API",
   "main": "index.js",
   "dependencies": {
-    "axios": "^0.16.2",
+    "axios": "^0.18.1",
     "old": "^0.2.0"
   },
   "devDependencies": {},
