@@ -1,3 +1,5 @@
+> This repo is archived as of June 29, 2020 but made available for historical record. For a maintained version of similar software please see [@cosmos/cosmjs](https://github.com/cosmos/cosmjs).
+
 # cosmos-sdk-js
 JavaScript client for the Cosmos SDK API
 
